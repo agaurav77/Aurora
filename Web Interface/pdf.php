@@ -1,5 +1,13 @@
 <?php
 require 'config.php';
+if(isset($_SESSION['loggedin'])){ 
+    $query = "select * from teams where tid='".$_SESSION['team']['id']."'";
+    $team = DB::findOneFromQuery($query);
+		$CSS = $team['theme'];
+} else {
+		$CSS = "Default";
+}
+
 if (isset($_SESSION['loggedin']) && $_SESSION['team']['status'] == 'Admin') {
     ?>
     <html>
@@ -7,9 +15,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['team']['status'] == 'Admin') {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; ?>/bootstrap.css" media="screen" />
-            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; ?>/bootstrap-responsive.css" media="screen" />
-            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; ?>/style.css" media="screen" />
+            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; echo "/"; echo $CSS; ?>/bootstrap.css" media="screen" />
+            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; echo "/"; echo $CSS; ?>/bootstrap-responsive.css" media="screen" />
+            <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; echo "/"; echo $CSS; ?>/style.css" media="screen" />
             <script type="text/javascript" src="<?php echo JS_URL; ?>/jquery.js"></script>
             <script type="text/javascript" src="<?php echo JS_URL; ?>/bootstrap.js"></script> 
             <script type="text/javascript" src="<?php echo JS_URL; ?>/plugin.js"></script>

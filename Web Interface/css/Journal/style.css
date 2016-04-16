@@ -1,0 +1,106 @@
+.contestheader{
+    background: url(/img/wood_1.png);
+    color: #ccc;
+}
+.contestheader h1{
+    padding: 100px 0 40px 0;
+}
+#contesttimer{
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    box-shadow: 0 0 10px #000;
+}
+.footer{
+    margin-left: -30px;
+    padding: 0 15px;
+    color: #0f0f0f;
+    text-align: center;
+    padding: 20px;
+}
+.bodycont{
+    padding-top: 50px;
+    text-align: justify;
+}
+th{
+    padding: 5px;
+}
+#mainbar{
+    overflow-x: auto;
+}
+#sidebar{
+    background: #f8f8f8;
+    padding: 20px;
+    overflow-x: auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f2f2f2;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #F7C2C0;
+}
+code{
+    color: #d14;
+    background: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.faq{
+    width: 100%;
+}
+.post{
+    margin: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px #000;
+}
+.mismatch th{
+    background: none;
+    font-size: 20px;
+    width: 300px;
+}
+.mismatch td {
+    padding: 0 10px;
+}
+.line {
+    text-align: right;
+    color: #afafaf;
+    border-right: 3px solid rgb(108, 226, 108);
+}
+.elipsis_sizer td {
+    max-width: 150px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tabletaghidden {
+    display:none;
+}
+
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+	background-color: #E9FFEF;
+}
+
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success,
+.table-hover > tbody > tr.success:hover > th {
+	background-color: #DEFDE7;
+}

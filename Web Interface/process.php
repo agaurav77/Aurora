@@ -241,7 +241,17 @@ if ($judge['value'] != "Lockdown" || (isset($_SESSION['loggedin']) && $_SESSION[
                     $_SESSION['msg'] = "Incorrect group.";
                     redirectTo("http://" . $_SERVER['HTTP_HOST'] . $_SESSION['url']);
                 }
-            } else {
+            } else if (isset($_POST['theme'])) {
+                if ($_POST['theme'] != '') {
+                    $query = "update teams set theme='" . addslashes($_POST['theme']) . "' where tid='" . $_SESSION['team']['id'] . "'";
+                    $res = DB::query($query);
+                    $_SESSION['msg'] = "Theme Updated";
+                    redirectTo("http://" . $_SERVER['HTTP_HOST'] . $_SESSION['url']);
+                } else {
+                    $_SESSION['msg'] = "Invalid theme.";
+                    redirectTo("http://" . $_SERVER['HTTP_HOST'] . $_SESSION['url']);
+                }
+						} else {
                 $_SESSION['msg'] = "Not enough values.";
                 redirectTo("http://" . $_SERVER['HTTP_HOST'] . $_SESSION['url']);
             }

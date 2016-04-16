@@ -11,6 +11,13 @@ if ($judge['value'] == 'Lockdown' && isset($_SESSION['loggedin']) && !isAdmin())
     $_SESSION['msg'] = "Judge is in Lockdown mode and so you have been logged out.";
     redirectTo(SITE_URL);
 }
+if(isset($_SESSION['loggedin'])){ 
+    $query = "select * from teams where tid='".$_SESSION['team']['id']."'";
+    $team = DB::findOneFromQuery($query);
+		$CSS = $team['theme'];
+} else {
+		$CSS = "Default";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +25,8 @@ if ($judge['value'] == 'Lockdown' && isset($_SESSION['loggedin']) && !isAdmin())
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; ?>/bootstrap.css" media="screen" />
-        <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; ?>/style.css" media="screen" />
+        <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; echo "/"; echo $CSS; ?>/bootstrap.css" media="screen" />
+        <link type="text/css" rel="stylesheet" href="<?php echo CSS_URL; echo "/"; echo $CSS; ?>/style.css" media="screen" />
         <script type="text/javascript" src="<?php echo JS_URL; ?>/jquery.js"></script>
         <script type="text/javascript" src="<?php echo JS_URL; ?>/bootstrap.js"></script> 
         <script type="text/javascript" src="<?php echo JS_URL; ?>/plugin.js"></script>
@@ -130,7 +137,7 @@ if ($judge['value'] == 'Lockdown' && isset($_SESSION['loggedin']) && !isAdmin())
                         <li><a href="<?php echo SITE_URL; ?>/submissions">Submissions</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
-                            <ul class="dropdown-menu navbar-nav navbar-inverse" role="menu">
+                            <ul class="dropdown-menu" role="menu">
                                 <li><a href="<?php echo SITE_URL; ?>/faq">FAQ</a></li>
                                 <li><a href="<?php echo SITE_URL; ?>/contact">Contact Us</a></li>
                             </ul>

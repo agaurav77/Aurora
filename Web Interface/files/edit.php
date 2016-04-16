@@ -32,6 +32,20 @@ if(isset($_SESSION['loggedin'])){
         </div>
     </div>
     <div class='form-group'>
+        <label class='col-lg-2 control-label' for='pass1'>Theme</label>
+        <div class='col-lg-4'>
+            <select name="theme" class='form-control'>
+                <?php
+                    $query = 'select * from themes';
+                    $result = DB::findAllFromQuery($query);
+                    foreach($result as $row){
+                        echo "<option value='$row[name]'".(($team['theme'] == $row['name'])?("selected='selected'"):("")).")>$row[name]</option>";
+                    }
+                ?>
+            </select>
+        </div>
+    </div>
+    <div class='form-group'>
         <lable class='col-lg-2 control-label'></lable>
         <div class='col-lg-4'>
             <input type="submit" class="btn btn-primary btn-large" value="update" name="update" />
